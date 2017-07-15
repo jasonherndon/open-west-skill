@@ -2,6 +2,7 @@
   "name": "open-west-skill",
   "version": "1.0.0",
   "description": "A quick way to learn more about the Open West Conference in Utah.",
+  "repository": "git@github.com:jasonherndon/open-west-skill.git",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon -e js,json  --exec node index.js",
