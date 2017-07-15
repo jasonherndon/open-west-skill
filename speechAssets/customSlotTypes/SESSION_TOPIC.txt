@@ -1,0 +1,12 @@
+data
+ops
+cloud
+tools
+web
+programming
+tutorials
+beginners
+hardware
+mobile
+general
+community

@@ -1,0 +1,64 @@
+{
+  "intents": [
+    {
+      "intent": "LaunchIntent"
+    },
+    {
+      "intent": "InfoIntent"
+    },
+    {
+      "intent": "RecommendationIntent"
+    },
+    {
+      "intent": "SomethingNewIntent"
+    },
+    {
+      "intent": "SessionDetailIntent"
+    },
+    {
+      "intent": "TryAgainIntent"
+    },
+    {
+      "intent": "LearnAboutTopicIntent",
+      "slots":  [
+        {
+          "name": "sessionTopic",
+          "type": "SESSION_TOPIC"
+        },
+      ]
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.NextIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.PauseIntent"
+    },
+    {
+      "intent": "AMAZON.PreviousIntent"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "AMAZON.ResumeIntent"
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    }
+  ]
+}

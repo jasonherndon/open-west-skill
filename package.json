@@ -1,0 +1,22 @@
+{
+  "name": "open-west-skill",
+  "version": "1.0.0",
+  "description": "A quick way to learn more about the Open West Conference in Utah.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e js,json  --exec node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.26.1",
+    "moment": "^2.18.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "voxa": "^2.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "1.11.0"
+  }
+}

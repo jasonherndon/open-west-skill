@@ -1,0 +1,49 @@
+AMAZON.HelpIntent Tell me more about this skill
+LaunchIntent launch
+LaunchIntent open
+
+InfoIntent what is open west
+InfoIntent what's open west about
+InfoIntent I want to learn more about open west
+InfoIntent tell me more about open west
+
+RecommendationIntent find a talk
+RecommendationIntent help me find a session
+RecommendationIntent find a new session
+RecommendationIntent discover a new session
+
+SomethingNewIntent something new
+SomethingNewIntent something new please
+SomethingNewIntent new
+SomethingNewIntent find something new
+SomethingNewIntent i want to learn something new
+SomethingNewIntent learn something new
+SomethingNewIntent discover something new
+SomethingNewIntent find a new session
+SomethingNewIntent find a new talk
+SomethingNewIntent either one
+SomethingNewIntent i don't know
+SomethingNewIntent i don't care
+SomethingNewIntent whatever you want
+
+SessionDetailIntent session details
+SessionDetailIntent talk details
+SessionDetailIntent session
+SessionDetailIntent details
+
+AMAZON.NextIntent next
+AMAZON.NextIntent another one
+AMAZON.NextIntent another session
+AMAZON.NextIntent another talk
+AMAZON.NextIntent new talk
+AMAZON.NextIntent new session
+
+TryAgainIntent try again
+TryAgainIntent try more
+
+LearnAboutTopicIntent I want to learn more about {sessionTopic}
+LearnAboutTopicIntent learn about {sessionTopic}
+LearnAboutTopicIntent dive deeper into {sessionTopic}
+LearnAboutTopicIntent learn more on {sessionTopic}
+LearnAboutTopicIntent go to sessions about {sessionTopic}
+LearnAboutTopicIntent learn {sessionTopic}
