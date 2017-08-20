@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh '''echo 'What is the package'?
 ls -la'''
-        git(url: 'git@github.com:jasonherndon/open-west-skill.git', branch: 'master', changelog: true, credentialsId: 'jasonherndon', poll: true)
+        git(url: 'git@github.com:jasonherndon/open-west-skill.git', branch: 'master', changelog: true, poll: true)
         sh '''echo 'What is it now?"
 ls -la'''
       }
