@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "config": "^1.26.1",
+    "dotenv": "^6.0.0",
     "moment": "^2.18.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",

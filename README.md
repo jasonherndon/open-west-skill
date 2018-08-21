@@ -30,7 +30,7 @@ mkdir config services skill speechAssets
 
 ##### CONFIG
 
-Here we'll put all of your config `json` files. We'll use a couple third party packages to help management environments and bundle each of these `json` files so that you have them available to you according to which environment you are in. 
+Here we'll put all of your config `json` files. We'll use a couple third party packages to help management environments and bundle each of these `json` files so that you have them available to you according to which environment you are in.
 
 As with any web project, it's important that you have a local working environment as well as an understanding of what your production environment looks like. With Amazon Skills, a production environment means [Lambda](https://aws.amazon.com/lambda/). And while there are local Docker or Vagrant packages for Lambda, I've found that the cost of setup for these is much higher (at the moment) than is worth it.
 
@@ -156,7 +156,7 @@ exports.register = function register(skill) {
 
 ##### SPEECH ASSETS
 
-We'll come back to this in a moment, but in order to setup the Amazon listing of the skill in a few moments, we'll need some sample data. For now, let's stub a couple files out. 
+We'll come back to this in a moment, but in order to setup the Amazon listing of the skill in a few moments, we'll need some sample data. For now, let's stub a couple files out.
 
 **speechAssets/IntentSchema.json**
 
@@ -206,7 +206,7 @@ We'll come back to this in a moment, but in order to setup the Amazon listing of
 AMAZON.HelpIntent Tell me more about this skill
 ```
 
-That'll do it for now. We'll cover more about what *Intents* and *Utterances* are a bit more 
+That'll do it for now. We'll cover more about what *Intents* and *Utterances* are a bit more
 
 ##### RUNNING IT
 
@@ -270,7 +270,7 @@ Then, inside of your `package.json` simply add the following to the `scripts` fi
 ```js
 'dev': 'nodemon -e js,json  --exec node index.js',
 ```
- 
+
 Then, you can run your server by calling `npm run dev`. I prefer this method as it reduces the number of files and dependencies for the project. The rest of this tutorial assumes you've set it up this way.
 
 **Misc**
@@ -288,7 +288,7 @@ In order to get a full end to end setup going, we'll need to configure a skill l
 
 #### NGROK
 
-Finally, we're going to need to use a tool called NGROK to create a publicly accessible URL to link to our local code for the skill which Amazon will use when setting the skill up (which is the next step). 
+Finally, we're going to need to use a tool called NGROK to create a publicly accessible URL to link to our local code for the skill which Amazon will use when setting the skill up (which is the next step).
 
 Go to [https://ngrok.com/download](https://ngrok.com/download) to download this tool and follow the setup procedures listed there for installation.
 
@@ -302,14 +302,14 @@ You'll see a bit of stuff in the output and, assuming no errors, you should see 
 
 
 #### Creating an account on the developer portal
-Okay, let's take a break from the code for a moment and turn to the web. Head over to [Amazon's Developer Portal](https://developer.amazon.com/) (which is different than their AWS Portal for services like S3 or EC2 which you may have used in the past). 
+Okay, let's take a break from the code for a moment and turn to the web. Head over to [Amazon's Developer Portal](https://developer.amazon.com/) (which is different than their AWS Portal for services like S3 or EC2 which you may have used in the past).
 
 Sign up for an account here and then login.
 
 #### Listing a skill
-After you've logged in to the developer portal, from the top nav bar, select `Alexa > Alexa Skills Kit` or click [this link](https://developer.amazon.com/edw/home.html#/skills) to jump right there. 
+After you've logged in to the developer portal, from the top nav bar, select `Alexa > Alexa Skills Kit` or click [this link](https://developer.amazon.com/edw/home.html#/skills) to jump right there.
 
-In the top right corner, select `Add a New Skill`. 
+In the top right corner, select `Add a New Skill`.
 
 The screen you see now (currently in create form, later in edit form) is what we will refer to as the **Skill Listing Page** or the **Development Portal Skill Listing** or something similar. Basically, it is Amazon's record of the skill and a contract for how your code will integrate with it.
 
@@ -330,13 +330,13 @@ Click "Next" to continue to the next screen of the skill listing page.
 
 You can read more about the interaction model in the [Amazon docs](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/defining-the-voice-interface#The%20Intent%20Schema), and if you're planning to develop skills. The interaction model is a set of instructions that inform the natural language processing portions of the Alexa Voice Service (AVS) exactly how your specific skill will be interacted with.
 
-Think of it like a map, wherein we give the AVS key value pairs for things you want users to be able to say (**Utterances**) and different responses that you want Alexa to send your skill (**Intents**). 
+Think of it like a map, wherein we give the AVS key value pairs for things you want users to be able to say (**Utterances**) and different responses that you want Alexa to send your skill (**Intents**).
 
 *Intents*
 The intents (commands for your skill) live in a JSON file in our code (**speechAssets/IntentSchema.json**) and it is simply a list of all the expected responses you expect to receive from Alexa in JSON format. On the console, under "Intent Schema" copy/past the code from **speechAssets/IntentSchema.json** into the console input area for intents.
 
 *Custom Slot Types*
-You'll notice a section called *Custom Slot Types* under the intents input area. For now, we'll skip these. But we'll come back to them later, for sure. 
+You'll notice a section called *Custom Slot Types* under the intents input area. For now, we'll skip these. But we'll come back to them later, for sure.
 
 *Utterances*
 The utterances (things people say to trigger the intents) live in a TXT file in our code (**speechAssets/SampleUtterances.txt**). Let's say that you had an Intent called "SubmitOrderIntent" that was meant to represent the key your skill would be sent from Alexa. You'd want to account for all of the ways that a user say "submit my order" in natural language - all of which you'd want to trigger one specific set of code.
@@ -365,17 +365,17 @@ For now, let's just add that one sample utterance from **speechAssets/SampleUtte
 *The Interaction Model*
 Combined, the way that Utterances, Slot Types and Intents work together is called the Interaction Model. If you're working on a team, someone with Voice Design or User Experience Design should help craft this interaction model, working closely with developers and QA. If you're a smaller team, or an individual developer, you'd want to study up on voice experience design as it's a critical part of how your skill will function. In addition to the Amazon developer docs linked above, and their [Voice Design Guide](https://developer.amazon.com/alexa/voice-design), some links to good resources, all from the amazing folks at UXBooth are:
 
-``` 
+```
 http://www.uxbooth.com/articles/the-future-of-voice-design/
 https://medium.com/cbc-digital-labs/adventures-in-conversational-interface-designing-for-the-amazon-echo-be15d792ae49
 http://www.uxbooth.com/articles/chatbox-ux-crafting-a-valuable-conversation/
-``` 
+```
 
 Click "Next" to continue to the next screen of the skill listing page.
 
 **Step Three: Configuration**
 
-You've basically got two buckets of ways for hosting a skill. You can use an AWS Lambda (which will we setup together later) or you can use `https` to any web server. You can select North America or Europe depending on where your target customers/servers are. 
+You've basically got two buckets of ways for hosting a skill. You can use an AWS Lambda (which will we setup together later) or you can use `https` to any web server. You can select North America or Europe depending on where your target customers/servers are.
 
 If you were using a real web server, this is where that address would go, but for now, we'll use the `https` option and paste in our https address from NGROK. (The one that looked like `https://92832de0.ngrok.io`).
 
@@ -391,13 +391,13 @@ Click "Next" to continue to the next screen of the skill listing page.
 
 **SSL Certificate**
 
-We'll skip this for now.
+For the SSL, you'll want to upload a .pem file that gets created after following the instructions here: https://developer.amazon.com/docs/custom-skills/configure-web-service-self-signed-certificate.html
 
 Click "Next" to continue to the next screen of the skill listing page.
 
 **Test**
 
-On the test panel of the web console, scroll down to the *Service Simulator* and in the text panel enter the following text, where "myskill" is the name of the skill that you used on the Invocation Name setting in the configuration. 
+On the test panel of the web console, scroll down to the *Service Simulator* and in the text panel enter the following text, where "myskill" is the name of the skill that you used on the Invocation Name setting in the configuration.
 
 ```
 launch myskill
@@ -458,7 +458,7 @@ I changed mine to the following:
 We'll break each of those parts down later and play around with different types of responses.
 
 **Publishing Information & Privacy/Compliance**
-We'll skip these for now and circle back to them when we're ready to publish our skill. 
+We'll skip these for now and circle back to them when we're ready to publish our skill.
 
 
 ----------
@@ -525,7 +525,7 @@ exports.register = function register(skill) {
 };
 ```
 
-Notice the new line above that begins `skill.onIntent('InfoIntent',`. This tells the skill that when Alexa sends a response to it after having mapped a users utterances to the intent "InfoIntent" (based on the sample utterances you provided) that you want to reply with the Intent Info view. The `to: 'entry'` line just means 
+Notice the new line above that begins `skill.onIntent('InfoIntent',`. This tells the skill that when Alexa sends a response to it after having mapped a users utterances to the intent "InfoIntent" (based on the sample utterances you provided) that you want to reply with the Intent Info view. The `to: 'entry'` line just means
 
 Since that Intent Info view we just referenced doesn't exist yet, let's create it. But before we move on I want to note one more thing about this file.
 
@@ -620,7 +620,7 @@ const views = (function views() {
 
 Notice anything about that first LaunchIntent that we changed? When we had stubbed data we used a `Launch.tell` object to pass the response back to the user. Now we're using a `Launch.ask` (and a `Recommendation.ask`).
 
-There's two things to note about this. First, the objects `tell` and `ask` come from the Voxa frameworks. And two, the difference between `ask` and `tell` is that they tell Alexa whether or not she should be listening for a response. Basically, are you telling the user something (so don't listen for a response) or are you asking the user something (listen for a response). 
+There's two things to note about this. First, the objects `tell` and `ask` come from the Voxa frameworks. And two, the difference between `ask` and `tell` is that they tell Alexa whether or not she should be listening for a response. Basically, are you telling the user something (so don't listen for a response) or are you asking the user something (listen for a response).
 
 When you send a request back to Alexa as a tell, a variable called `shouldEndSession` is sent back on the object depending on whether or not the interaction is ended.
 
@@ -653,15 +653,9 @@ There are a couple built in ones:
 
 **entry:** Means that the interaction is over and no next state is expected. The skill is back at the beginning, blank state. Think of this like "home" or the "lobby". It keeps the current session open.
 
-**die:** Means that the interaction is over, no next state is expected (much like `entry`) but in this case the session will end. 
+**die:** Means that the interaction is over, no next state is expected (much like `entry`) but in this case the session will end.
 
 On top of this, you can create any `to: stateName` that you desire. So here, we've created a `recommendationState` and pointed both the `LaunchIntent` and the `RecommendationIntent` to it.
-
-Here's a diagram of where we are at in the conversation flow:
-
-```
-INSERT DIAGRAM
-```
 
 Okay, let's tackle adding support for that `launchRecommendationState` now.
 
@@ -675,7 +669,7 @@ First, let's add support for that intent to the **skill/states.js** file. Previo
 ```
 
 
-Since the intent here is to capture the response to the question, "Would you like me to help you find an interesting talk?", we need to be able to capture a "yes" and capture a "no". 
+Since the intent here is to capture the response to the question, "Would you like me to help you find an interesting talk?", we need to be able to capture a "yes" and capture a "no".
 
 *The problem?* There are a lot of ways that a person could say yes and no. To help with that, we have access to some baked in Intents from Amazon as part of the Alexa Voice Service. For times like these, we turn to [Amazon's Standard Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents) which give us access to basic intents. In these cases, we don't have to think of all the ways that a user could respond yes or no, we can use the `AMAZON.YesIntent` and the `AMAZON.NoIntent`. Like this
 
@@ -690,7 +684,7 @@ Since the intent here is to capture the response to the question, "Would you lik
   });
 ```
 
-Perfect! We're almost there. So, how do we want to handle if the user say's yes? Well, I think we'd want to send them to the same place where someone who asked for a recommendation would end up. 
+Perfect! We're almost there. So, how do we want to handle if the user say's yes? Well, I think we'd want to send them to the same place where someone who asked for a recommendation would end up.
 
 **skill/states.js**
 ```js
@@ -703,7 +697,7 @@ Perfect! We're almost there. So, how do we want to handle if the user say's yes?
   });
 ```
 
-And if they said no, we'd want to tell them something like, "Okay, no worries." or something. So to do that, we'd have to add that custom response to our **skill/views.js** file and then reference that in our **skill/states.js** file. To do that, I'm going to restructure my both of those files so that they each now look like this: 
+And if they said no, we'd want to tell them something like, "Okay, no worries." or something. So to do that, we'd have to add that custom response to our **skill/views.js** file and then reference that in our **skill/states.js** file. To do that, I'm going to restructure my both of those files so that they each now look like this:
 
 > Notice that I've added a `reprompt` value to any an object below that is an "ask". This is best practice for any time that you're asking a question, as Alexa will listen for a few moments and then prompt the user to respond if it hears nothing.
 
@@ -769,11 +763,7 @@ exports.register = function register(skill) {
 
 ```
 
-Great! So now our diagram of where we are at in the conversation flow would look more like this:
-
-```
-INSERT DIAGRAM
-```
+Great!
 
 This means, from a User Experience flow perspective, both a `cold open` of the skill ("Alexa launch openwest") and a `direct open` of the skill ("Alexa, ask openwest to help me find a session"), while they have different responses, both should eventually lead to the `recommendationState` and the expected response to both in this case is assumed to be the same.
 
@@ -871,11 +861,7 @@ Now, let's add that to our view to make it work:
 ...
 ```
 
-Perfect. So... now in our conversation flow, we've added the following
-
-```
-INSERT DIAGRAM
-``` 
+Perfect.
 
 Lets go ahead and add support for how a user might respond to that Yes or No question.
 
@@ -928,12 +914,6 @@ input: ask openwest to help me find a session
 input: something new
 input: yes
 expected state: "Here is a featured talk..."
-```
-
-If the above work, we're at this point in our conversation flow:
-
-```
-INSERT DIAGRAM
 ```
 
 When the user responds that they are ready to start going through the featured (here, random) sessions we want to fetch the session information from JoindIn and then concat that with some basic instructional information "Wanna learn more or go to the next one?"
@@ -1002,12 +982,6 @@ Behind the scenes, Voxa inserts the resolution of this function to the variable 
 * We'll also want to add that "try again" that I'm using if the API call fails
 * Notice that on the `//@todo` notes, I say "in this session". This is part of state management in that I don't want the "try again" or "learn more" to be global responses, but rather tied to this specific portion of the codebase.
 * **NOTE:** I cheated and hardcoded the max number of results from the API to the number of total talks for OpenWest. While this isn't necessarily ideal for production, it's not terrible since theoretically, this feature can really only exist after the talks are already set. But still, for production I'd want to fetch that number dynamically.
-
-Okay, so now our conversation diagram looks like this:
-
-```
-INSERT DIAGRAM
-```
 
 Feel free to go ahead and try this out in the Service Simulator online, I'm going to keep going with finishing up this "SomethingMoreIntent" by wrapping up those `//@todo` notes.
 
@@ -1115,9 +1089,9 @@ Great! Now to add support for the `Intent.SessionDetail.Main` and call this feat
 ...
 ```
 
-Obviously, that variable `SessionDetails` doesn't exist yet. So let's head over to our **skill/variables.js** file and add that. But before we put code to it, let's think about how we might do that. 
+Obviously, that variable `SessionDetails` doesn't exist yet. So let's head over to our **skill/variables.js** file and add that. But before we put code to it, let's think about how we might do that.
 
-The big question for me is, do we want to make another API call? If I take a look at the URL I used on that first API call as part of the `RandomSessionDescription` variable, I think I can get everything I need from it. 
+The big question for me is, do we want to make another API call? If I take a look at the URL I used on that first API call as part of the `RandomSessionDescription` variable, I think I can get everything I need from it.
 
 For instance, `https://api.joind.in/v2.1/events/6314/talks?start=43&resultsperpage=1` has information we've already used (like the day, title, description and presenter) but it also contains information about the time and place of the talk, as well as the track it belongs to. I think that should be enough. So rather than make another call, I really just want to grab that information when I make my first call and remember it.
 
@@ -1193,11 +1167,7 @@ exports.SessionDetails = function SessionDetails(model) {
 
 > Note: I ran `npm install moment --save` to install MomentJS for easy formatting of dates/times and have required it at the top of that script.
 
-Okay - We're all done. Feel free to had over to the Service Simulator online and test it out. At this point, our conversation diagram looks like this:
-
-```
-INSERT DIAGRAM
-```
+Okay - We're all done. Feel free to had over to the Service Simulator online and test it out.
 
 We've just covered a lot. Mainly:
 
@@ -1210,7 +1180,7 @@ We've just covered a lot. Mainly:
 
 Next, we'll learn about custom slot types and capturing user responses to use as variables in your skill.
 
-> I feel the need to note that the **speechAssets/SampleUtterances.txt** file is really bare bones. Ideally, I'd have dozens of more sample combinations of how people could 
+> I feel the need to note that the **speechAssets/SampleUtterances.txt** file is really bare bones. Ideally, I'd have dozens of more sample combinations of how people could
 
 #### A More Complex Interaction w/ Custom Slot Types
 
@@ -1285,7 +1255,7 @@ So, back in our code, we'll create a folder inside of the **speechAssets** folde
   /customSlotTypes
     SESSION_TOPIC.txt
 ```
- 
+
  The contents of that text file would be all of the variables that we want to account for. For this example, we'll use the name of the tracks at OpenWest this year:
 
 ```
@@ -1322,7 +1292,7 @@ Now, if you try to save it - you should get an error. Why? Because Slot types ne
 
 Okay! Now we just need to add the controller (**states.js**) and view (**views.js**) logic to make these work.
 
-I imagine that if the user selected that they wanted to learn more about tutorials or hardware that they would be able to only hear about talks that those tracks had. Unfortunately, the Joindin API docs don't have an endpoint for that `There is no general talks collection, instead you can find talks by event or by speaker.` So we'll have to use our imaginations here. But as we've already covered how to add HTTP requests into the lifecycle of an intent, we'll focus here on just making sure that our custom slot type is working. 
+I imagine that if the user selected that they wanted to learn more about tutorials or hardware that they would be able to only hear about talks that those tracks had. Unfortunately, the Joindin API docs don't have an endpoint for that `There is no general talks collection, instead you can find talks by event or by speaker.` So we'll have to use our imaginations here. But as we've already covered how to add HTTP requests into the lifecycle of an intent, we'll focus here on just making sure that our custom slot type is working.
 
 So to do that, we'll want to update the **states.js** file and add this to the state machine. It allows Alexa to respond to something via the `LearnAboutTopicIntent` after opening the skill. It will store the slot value `slots.sessionTopic.value` on the model for later consumption.
 
@@ -1420,4 +1390,4 @@ Copy and paste the ARN Number from the Lambda dashboard. You will replace the NG
 
 ##### Connect Your AWS Device to Your Account To Test
 
-If you sign in to the Amazon companion app on your mobile device with the same login that your AWS developer portal is under and (assuming your phone is connected to your mobile device), browse the skills to enable, you should see that the skill that you'd added in the Developer Portal. You can enable that skill and test it out on an actual Lambda running your sites's code. 
+If you sign in to the Amazon companion app on your mobile device with the same login that your AWS developer portal is under and (assuming your phone is connected to your mobile device), browse the skills to enable, you should see that the skill that you'd added in the Developer Portal. You can enable that skill and test it out on an actual Lambda running your sites's code.
